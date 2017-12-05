@@ -6,9 +6,9 @@ subir/executar o `projeto backend ou forntend` de forma `independente`. Que por 
 para esse backend possa existir varios frontends. Ex: "Para esse projeto backend posso ter uma client mobile, 
 web, etc". Nesse case tenho um client web desenvolvido com angular 4.
 
-## Acesse o link para baixar e executar o client desse projeto
+## Acesse o link para baixar e executar o client que complementa esse projeto
 
-link do client Angular
+gestaocursos-ui: https://github.com/wellingtonxafundifornio/gestaocursos-ui
 
 ### Executando o projeto
  * No arquivo ...\gestaocursos-api\src\main\resources\ `application.properties` coloque as credenciais do seu banco de dados.;
