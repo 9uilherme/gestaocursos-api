@@ -19,7 +19,10 @@ public interface LancamentoRepository extends CrudRepository<Lancamento, Long>{
 	//	}
 
 	@NullMeans(NullBehavior.IGNORED)
-	public List<Lancamento> findByContaCodigoAndDataBetweenAndValor(Long codigo, Date dataInicial,Date dataFinal,Double valor);
+	public List<Lancamento> findByContaCodigoOrDataBetweenOrValor(Long codigo, Date dataInicial,Date dataFinal,Double valor);
+
+	@NullMeans(NullBehavior.IGNORED)
+	public List<Lancamento> findByContaCodigoOrValor(Long codigo,Double valor);
 
 
 	public List<Lancamento> findByConta(Conta conta);

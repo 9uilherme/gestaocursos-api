@@ -31,10 +31,17 @@ public class LancamentoResource {
 	}
 
 
-	@PostMapping
-	public ResponseEntity<List<Lancamento>> listarPorFiltro(final @Valid @RequestBody FiltroLancamento filtro, final HttpServletResponse response){
-		//List<Lancamento> lancamentos = lancamentoService.findByContaAndDataBetweenAndValor(filtro);
-		List<Lancamento> lancamentos = lancamentoService.listarTodos();
+	@GetMapping
+	public ResponseEntity<List<Lancamento>> listar(){
+		List<Lancamento> lancamentos =  lancamentoService.listarTodos();
+		return lancamentos  != null? ResponseEntity.ok(lancamentos ) : ResponseEntity.notFound().build();
+	}
+
+
+	@PostMapping("/filtro")
+	public ResponseEntity<List<Lancamento>> listarPorFiltro(final @RequestBody FiltroLancamento filtro, final HttpServletResponse response){
+		//List<Lancamento> lancamentos = lancamentoService.findByContaCodigoOrValor(filtro);
+		List<Lancamento> lancamentos = lancamentoService.findByContaCodigoOrDataBetweenOrValor(filtro);
 		return !lancamentos.isEmpty() ? ResponseEntity.ok(lancamentos) : ResponseEntity.noContent().build();
 	}
 

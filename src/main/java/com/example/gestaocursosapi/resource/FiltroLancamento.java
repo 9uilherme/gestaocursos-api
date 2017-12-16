@@ -4,28 +4,28 @@ import java.util.Date;
 
 public class FiltroLancamento {
 
-	private Long conta;
-	private Date dataInicial;
-	private Date dataFinal;
+	private Long codigo;
+	private Date periodoInicio;
+	private Date periodoFim;
 	private Double valor;
 	
-	public Long getConta() {
-		return conta;
+	public Long getCodigo() {
+		return codigo;
 	}
-	public void setConta(Long conta) {
-		this.conta = conta;
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
-	public Date getDataInicial() {
-		return dataInicial;
+	public Date getPeriodoInicio() {
+		return periodoInicio;
 	}
-	public void setDataInicial(Date dataInicial) {
-		this.dataInicial = dataInicial;
+	public void setPeriodoInicio(Date periodoInicio) {
+		this.periodoInicio = periodoInicio;
 	}
-	public Date getDataFinal() {
-		return dataFinal;
+	public Date getPeriodoFim() {
+		return periodoFim;
 	}
-	public void setDataFinal(Date dataFinal) {
-		this.dataFinal = dataFinal;
+	public void setPeriodoFim(Date periodoFim) {
+		this.periodoFim = periodoFim;
 	}
 	public Double getValor() {
 		return valor;
@@ -33,5 +33,7 @@ public class FiltroLancamento {
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
-
+	
+	
+	
 }

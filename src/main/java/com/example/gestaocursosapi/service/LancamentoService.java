@@ -37,11 +37,16 @@ public class LancamentoService {
 			return lancamentoRepository.findByConta(conta);
 		}
 
-		public List<Lancamento> findByContaAndDataBetweenAndValor(FiltroLancamento filtroLancamento){
+		public List<Lancamento> findByContaCodigoOrDataBetweenOrValor(FiltroLancamento filtroLancamento){
 
-			return lancamentoRepository.findByContaCodigoAndDataBetweenAndValor(filtroLancamento.getConta(), 
-					filtroLancamento.getDataInicial(),filtroLancamento.getDataFinal(),filtroLancamento.getValor());
+			return lancamentoRepository.findByContaCodigoOrDataBetweenOrValor(filtroLancamento.getCodigo(), 
+					filtroLancamento.getPeriodoInicio(),filtroLancamento.getPeriodoFim(),filtroLancamento.getValor());
+			
 		}
+		public List<Lancamento> findByContaCodigoOrValor(FiltroLancamento filtroLancamento){
+			return lancamentoRepository.findByContaCodigoOrValor(filtroLancamento.getCodigo(),filtroLancamento.getValor());			
+		}
+
 
 
 	}
