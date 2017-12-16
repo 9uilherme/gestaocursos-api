@@ -24,8 +24,7 @@ public interface LancamentoRepository extends CrudRepository<Lancamento, Long>{
 	@NullMeans(NullBehavior.IGNORED)
 	public List<Lancamento> findByContaCodigoOrValor(Long codigo,Double valor);
 
-
 	public List<Lancamento> findByConta(Conta conta);
-
+	
 }
 

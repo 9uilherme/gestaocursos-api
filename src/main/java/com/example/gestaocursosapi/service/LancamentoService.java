@@ -17,36 +17,30 @@ public class LancamentoService {
 
 	@Autowired
 	private LancamentoRepository lancamentoRepository;
+	
+	@Autowired
+	private ContaRepository contaRepository;
+
+	public Lancamento criar(Lancamento lancamento) {
+		return lancamentoRepository.save(lancamento);
+	}
 
 	public List<Lancamento> listarTodos() {
 		return (List<Lancamento>) lancamentoRepository.findAll();
 	}
 
-	public List<Lancamento> buscarPeloCodigoConta(final Long codigo) {
-		//return lancamentoRepository.findAllByContaCodigo(codigo);
-		return null;
+	public List<Lancamento> buscarPorConta(final Long codigo) {
+		Conta conta = contaRepository.findOne(codigo);
+		return lancamentoRepository.findByConta(conta);
 	}
 
-		@Autowired
-		private ContaRepository contaRepository;
-
-		public List<Lancamento> buscarPorConta(final Long codigo) {
-
-			Conta conta = contaRepository.findOne(codigo);
-
-			return lancamentoRepository.findByConta(conta);
-		}
-
-		public List<Lancamento> findByContaCodigoOrDataBetweenOrValor(FiltroLancamento filtroLancamento){
-
-			return lancamentoRepository.findByContaCodigoOrDataBetweenOrValor(filtroLancamento.getCodigo(), 
-					filtroLancamento.getPeriodoInicio(),filtroLancamento.getPeriodoFim(),filtroLancamento.getValor());
-			
-		}
-		public List<Lancamento> findByContaCodigoOrValor(FiltroLancamento filtroLancamento){
-			return lancamentoRepository.findByContaCodigoOrValor(filtroLancamento.getCodigo(),filtroLancamento.getValor());			
-		}
-
-
-
+	public List<Lancamento> findByContaCodigoOrValor(FiltroLancamento filtroLancamento){
+		return lancamentoRepository.findByContaCodigoOrValor(filtroLancamento.getCodigo(),filtroLancamento.getValor());			
 	}
+	
+	public List<Lancamento> findByContaCodigoOrDataBetweenOrValor(FiltroLancamento filtroLancamento){
+		return lancamentoRepository.findByContaCodigoOrDataBetweenOrValor(filtroLancamento.getCodigo(), 
+				filtroLancamento.getPeriodoInicio(),filtroLancamento.getPeriodoFim(),filtroLancamento.getValor());
+	}
+
+}
