@@ -1,12 +1,13 @@
 package com.example.gestaocursosapi.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
 
-import com.example.gestaocursosapi.model.Aluno;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.gestaocursosapi.model.Conta;
 import com.example.gestaocursosapi.model.Lancamento;
 
-public interface LancamentoRepository extends CrudRepository<Lancamento, Long>{
+public interface LancamentoRepository extends JpaRepository<Lancamento, Long>{
 
-	Lancamento findAllByCodigoConta();
-
+	List<Lancamento> findByConta(Conta conta);
 }
