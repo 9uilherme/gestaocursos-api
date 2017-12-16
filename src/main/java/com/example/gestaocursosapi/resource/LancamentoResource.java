@@ -52,7 +52,7 @@ public class LancamentoResource {
 	@PostMapping("/filtro")
 	public ResponseEntity<List<Lancamento>> listarPorFiltro(final @RequestBody FiltroLancamento filtro, final HttpServletResponse response){
 		//List<Lancamento> lancamentos = lancamentoService.findByContaCodigoOrValor(filtro);
-		List<Lancamento> lancamentos = lancamentoService.findByContaCodigoOrValor(filtro);
+		List<Lancamento> lancamentos = lancamentoService.findByContaCodigoOrDataBetweenOrValor(filtro);
 		return !lancamentos.isEmpty() ? ResponseEntity.ok(lancamentos) : ResponseEntity.noContent().build();
 	}
 
